@@ -7,7 +7,7 @@ const router = express.Router()
 
 router.post("/register",[
     check("firstName","First name is required").isString(),
-    check("lastName","Last name is required").isString(),
+    // check("lastName","Last name is required").isString(),
     check("email","Email is required").isEmail(),
     check("password","Password with 6 or more characters required").isLength({
         min:6
@@ -35,7 +35,7 @@ router.post("/register",[
             secure:process.env.NODE_ENV === "production",
             maxAge : 86400000
         })
-        return res.sendStatus(200)
+        return res.status(200).send({message:"User registered successfully"})
     } catch (error) {
         return res.status(500).send({message:"Something went wrong"})
         
