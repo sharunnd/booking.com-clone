@@ -1,8 +1,8 @@
 import { RegisterFormData } from "./pages/Register";
 import { SignInFormData } from "./pages/SignIn";
 import { HotelType } from "../../backend/src/models/hotel";
-// const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
-const API_BASE_URL = "https://booking-app-prod.onrender.com";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
+// const API_BASE_URL = "https://booking-app-prod.onrender.com";
 
 export const register = async (formData: RegisterFormData) => {
   const response = await fetch(`${API_BASE_URL}/api/users/register`, {
@@ -80,6 +80,34 @@ export const fetchMyHotels = async (): Promise<HotelType[]> => {
 
   if (!response.ok) {
     throw new Error("Error fetching hotels");
+  }
+
+  return response.json();
+};
+
+export const fetchMyHotelId = async (hotelId: string): Promise<HotelType> => {
+  const response = await fetch(`${API_BASE_URL}/api/my-hotels/${hotelId}`, {
+    credentials: "include",
+  });
+  if (!response.ok) {
+    throw new Error("Error fetching hotels");
+  }
+
+  return response.json();
+};
+
+export const updatedMyHotelById = async (hotelFormData: FormData) => {
+  const response = await fetch(
+    `${API_BASE_URL}/api/my-hotels/${hotelFormData.get("hotelId")}`,
+    {
+      method: "PUT",
+      body: hotelFormData,
+      credentials: "include",
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to update hotel");
   }
 
   return response.json();
