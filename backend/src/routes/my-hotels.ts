@@ -100,7 +100,6 @@ router.put(
         ...updatedImageUrls,
         ...(updatedHotel.imageUrls || []),
       ];
-      console.log(hotel,"ggg",updatedHotel || []);
       
       await hotel.save();
       res.status(201).json(hotel);

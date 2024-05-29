@@ -1,9 +1,10 @@
 import { useMutation, useQuery } from "react-query";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ManageHotelForm from "../forms/ManageHotelForm/ManageHotelForm";
 import * as apiClient from "../api-clients";
 import { useAppContext } from "../contexts/AppContext";
 const EditHotel = () => {
+  const navigate = useNavigate()
   const { hotelId } = useParams();
   const { showToast } = useAppContext();
   const { data: hotel } = useQuery(
@@ -17,6 +18,7 @@ const EditHotel = () => {
   const {mutate,isLoading} = useMutation(apiClient.updatedMyHotelById,{
     onSuccess:()=>{
       showToast({ message: "Hotel updated!", type: "SUCCESS" });
+      navigate("/my-hotels")
     },
     onError:()=>{
       showToast({ message: "Error updating hotel", type: "ERROR" });
