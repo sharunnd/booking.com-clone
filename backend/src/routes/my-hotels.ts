@@ -1,9 +1,10 @@
 import express, { Request, Response } from "express";
 import multer from "multer";
 import cloudinary from "cloudinary";
-import Hotel, { HotelType } from "../models/hotel";
-import verfyToken from "../middleware/auth";
+import Hotel from "../models/hotel";
+import verifyToken from "../middleware/auth";
 import { body } from "express-validator";
+import { HotelType } from "../shared/types";
 
 const router = express.Router();
 const storage = multer.memoryStorage();
@@ -16,7 +17,7 @@ const upload = multer({
 
 router.post(
   "/",
-  verfyToken,
+  verifyToken,
   [
     body("name").notEmpty().withMessage("Name is required"),
     body("city").notEmpty().withMessage("City is required"),
@@ -49,7 +50,7 @@ router.post(
   }
 );
 
-router.get("/", verfyToken, async (req: Request, res: Response) => {
+router.get("/", verifyToken, async (req: Request, res: Response) => {
   try {
     const hotels = await Hotel.find({ userId: req.userId });
     res.json(hotels);
@@ -58,7 +59,7 @@ router.get("/", verfyToken, async (req: Request, res: Response) => {
   }
 });
 
-router.get("/:id", verfyToken, async (req: Request, res: Response) => {
+router.get("/:id", verifyToken, async (req: Request, res: Response) => {
   const id = req.params.id.toString();
   try {
     const hotel = await Hotel.findOne({
@@ -74,7 +75,7 @@ router.get("/:id", verfyToken, async (req: Request, res: Response) => {
 
 router.put(
   "/:hotelId",
-  verfyToken,
+  verifyToken,
   upload.array("imageFiles"),
   async (req: Request, res: Response) => {
     try {
