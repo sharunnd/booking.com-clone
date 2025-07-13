@@ -1,5 +1,3 @@
-
-
 export type UserType = {
   _id: string;
   email: string;
@@ -9,22 +7,22 @@ export type UserType = {
 };
 
 export type HotelType = {
-    _id:string;
-    userId:string;
-    name:string;
-    city:string;
-    country:string;
-    description:string;
-    type:string;
-    adultCount:number;
-    childCount:number;
-    facilities:string[];
-    pricePerNight:number;
-    starRating:number;
-    imageUrls:string[];
-    lastUpdated:Date;
-}
-
+  _id: string;
+  userId: string;
+  name: string;
+  city: string;
+  country: string;
+  description: string;
+  type: string;
+  adultCount: number;
+  childCount: number;
+  facilities: string[];
+  pricePerNight: number;
+  starRating: number;
+  imageUrls: string[];
+  lastUpdated: Date;
+  bookings: BookingType[];
+};
 
 export type HotelSearchResponse = {
   data: HotelType[];
@@ -34,7 +32,6 @@ export type HotelSearchResponse = {
     pages: number;
   };
 };
-
 
 export type BookingType = {
   _id: string;

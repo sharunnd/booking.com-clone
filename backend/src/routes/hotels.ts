@@ -1,6 +1,6 @@
 import express, { Response, Request } from "express";
 import Hotel from "../models/hotel";
-import {  BookingType, HotelSearchResponse } from "../shared/types";
+import { BookingType, HotelSearchResponse } from "../shared/types";
 import { param, validationResult } from "express-validator";
 // import Stripe from "stripe";
 import verifyToken from "../middleware/auth";
@@ -163,7 +163,6 @@ router.get(
     }
   }
 );
-
 
 const constructSearchQuery = (queryParams: any) => {
   let constructedQuery: any = {};
