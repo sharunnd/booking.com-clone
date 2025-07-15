@@ -43,10 +43,10 @@ const SearchResultsCard = ({ hotel }: Props) => {
                 {facility}
               </span>
             ))}
-            <span className=" text-sm ">
+            {/* <span className=" text-sm ">
               {hotel.facilities.length > 3 &&
                 `+${hotel.facilities.length - 3} more`}
-            </span>
+            </span> */}
           </div>
           <div className="flex flex-col items-end gap-1">
             <span className=" font-bold">₹{hotel.pricePerNight} per night</span>
