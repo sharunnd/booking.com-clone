@@ -13,8 +13,9 @@
     <ul>
         <li>HTML</li>
         <li>CSS</li>
-        <li>TypeScript/li>
+        <li>TypeScript</li>
         <li>React.js</li>
+        <li>Tailwind CSS</li>
         <li>MongoDB</li>
         <li>Express</li>
         <li>Node.js</li>
