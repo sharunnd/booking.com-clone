@@ -9,7 +9,7 @@
         <li>Login and Authentication: Registered users can log in securely to view bookings, saved properties, and account settings.</li>
     </ul>
 
-    <p>This project is built using the following technologies:</p>
+ <p>This project is built using the following technologies:</p>
     <ul>
         <li>HTML</li>
         <li>CSS</li>
@@ -20,3 +20,6 @@
         <li>Node.js</li>
     </ul>
 </div>
+
+<h4>Home page</h4>
+<img width="1920" height="894" alt="Screenshot (29)" src="https://github.com/user-attachments/assets/706a5df8-8319-46dd-bef2-4010a7d34afb" />
