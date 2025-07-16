@@ -6,7 +6,7 @@
         <li>Find the Perfect Stay: Easily search and filter accommodations based on your travel preferences and budget.</li>
         <li>User-Friendly Interface: Enjoy a seamless and intuitive experience with a clean and responsive design.</li>
         <li>Secure User Registration: Sign up to access personalised recommendations and manage your bookings.</li>
-        <li>Login and Authentication: Registered users can log in securely to view bookings, saved properties, and account settings.</li>
+        <li>Login and Authentication: Registered users can log in securely to view bookings and add hotels</li>
     </ul>
 
  <p>This project is built using the following technologies:</p>
