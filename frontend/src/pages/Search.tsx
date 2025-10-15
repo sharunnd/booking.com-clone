@@ -31,7 +31,7 @@ const Search = () => {
     maxPrice: selectedPrice?.toString(),
     sortOption,
   };
-
+  
   const { data: hotelData } = useQuery(["searchHotels", searchParams], () =>
     apiClient.searchHotels(searchParams)
   );
